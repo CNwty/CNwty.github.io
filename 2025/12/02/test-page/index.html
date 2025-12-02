@@ -102,12 +102,10 @@
     </div>
 
     <div :class="'phone-menu ' + menu_show" id="phone-menu">
-        <div :class="'title'" @click="menu_show=!menu_show">
-            <span style="margin-right: 10px;">
-                <a-icon type="appstore" theme="filled" />
-            </span>
-            <span>花念奴wty</span>
-        </div>
+        <a href="/" :class="'title'" @click="menu_show=!menu_show">
+            <span class="logo"><img src="/images/logo.png" alt="Logo" width="36" height="36"></span>
+            <span class="title">花念奴wty</span>
+        </a>
         <div class="items" v-show="menu_show">
             
             <a href="/">
@@ -215,21 +213,21 @@
             
             <span class="tag">
                 
-                <a href="/tags/测试" style=color:#00bcd4>
+                <a href="/tags/测试" style=color:#879cff>
                     测试
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/示例" style=color:#1bccbc>
+                <a href="/tags/示例" style=color:#ffa2c4>
                     示例
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/博客" style=color:#ff7d73>
+                <a href="/tags/博客" style=color:#00bcd4>
                     博客
                 </a>
             </span>

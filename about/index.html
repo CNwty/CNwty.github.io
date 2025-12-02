@@ -102,12 +102,10 @@
     </div>
 
     <div :class="'phone-menu ' + menu_show" id="phone-menu">
-        <div :class="'title'" @click="menu_show=!menu_show">
-            <span style="margin-right: 10px;">
-                <a-icon type="appstore" theme="filled" />
-            </span>
-            <span>花念奴wty</span>
-        </div>
+        <a href="/" :class="'title'" @click="menu_show=!menu_show">
+            <span class="logo"><img src="/images/logo.png" alt="Logo" width="36" height="36"></span>
+            <span class="title">花念奴wty</span>
+        </a>
         <div class="items" v-show="menu_show">
             
             <a href="/">
