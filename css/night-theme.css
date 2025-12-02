@@ -740,6 +740,7 @@ a {
   border-radius: 4px;
   font-size: 14px;
   color: #4b616b;
+  word-break: break-word;
 }
 .content pre {
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
@@ -749,10 +750,15 @@ a {
   border-radius: 15px;
   overflow: auto;
   position: relative;
+  max-width: 100%;
+  display: block;
 }
 .content pre code {
   background: none;
   padding: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .content h1,
 .content h2,
@@ -818,6 +824,9 @@ a {
   background: none;
   line-height: 2;
   font-size: 13px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .content .hljs .hljs-built_in {
   color: #42a4d6;
@@ -885,11 +894,14 @@ a {
   .content code {
     font-size: 13px;
     padding: 3px 6px;
+    word-break: break-word;
   }
   .content pre {
     padding: 15px 10px;
     margin: 20px 0;
     border-radius: 8px;
+    overflow-x: auto;
+    max-width: 100vw;
   }
   .content pre .language {
     padding: 6px 10px;
@@ -898,6 +910,9 @@ a {
   }
   .content pre .hljs {
     font-size: 12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
   .content blockquote {
     margin: 15px 0;
