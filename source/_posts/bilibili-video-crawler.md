@@ -96,6 +96,7 @@ bilibili_spider/
 - [依赖文件](../bilibili_spider/requirements.txt)
 - [主程序](../bilibili_spider/main.py)
 - [Web服务器](../bilibili_spider/web_server.py)
+- [工具函数](https://github.com/CNwty/CNwty.github.io/tree/source/bilibili_spider/utils)
 
 ## 项目数据
 
