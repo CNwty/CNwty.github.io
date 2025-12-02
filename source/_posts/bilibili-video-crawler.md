@@ -91,7 +91,7 @@ bilibili_spider/
 
 您可以直接下载完整的项目文件：
 
-- [项目源代码](../bilibili_spider)
+- [项目源代码](https://github.com/CNwty/CNwty.github.io/tree/source/bilibili_spider)
 - [配置文件](../bilibili_spider/config.json)
 - [依赖文件](../bilibili_spider/requirements.txt)
 - [主程序](../bilibili_spider/main.py)
