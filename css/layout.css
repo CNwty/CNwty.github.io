@@ -105,7 +105,6 @@
     position: absolute;
     width: 350px;
     height: 350px;
-    display: none;
   }
   #home-head .home-info .info {
     display: flex;
