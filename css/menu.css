@@ -58,6 +58,9 @@
 #menu .phone-menu .title {
   cursor: pointer;
   color: menu-default-font;
+  line-height: 50px;
+  display: block;
+  font-size: 18px;
 }
 #menu .phone-menu .items {
   padding: 10px 0 20px;
@@ -66,6 +69,10 @@
 }
 #menu .phone-menu .items a {
   color: menu-default-font;
+  display: block;
+  padding: 12px 0;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 #menu .phone-menu .items .item {
   min-width: 200px;

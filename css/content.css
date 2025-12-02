@@ -118,3 +118,76 @@
 .content .hljs .hljs-variable {
   color: #458;
 }
+@media (max-width: 600px) {
+  .content {
+    padding: 0 10px !important;
+  }
+  .content h1,
+  .content h2,
+  .content h3,
+  .content h4,
+  .content h5 {
+    line-height: 1.4;
+    margin: 15px 0;
+  }
+  .content h1 {
+    font-size: 1.6em;
+  }
+  .content h2 {
+    font-size: 1.5em;
+  }
+  .content h3 {
+    font-size: 1.3em;
+  }
+  .content h4,
+  .content h5 {
+    font-size: 1.1em;
+  }
+  .content p {
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  .content code {
+    font-size: 13px;
+    padding: 3px 6px;
+  }
+  .content pre {
+    padding: 15px 10px;
+    margin: 20px 0;
+    border-radius: 8px;
+  }
+  .content pre .language {
+    padding: 6px 10px;
+    font-size: 11px;
+    border-radius: 0 0 8px 8px;
+  }
+  .content pre .hljs {
+    font-size: 12px;
+  }
+  .content blockquote {
+    margin: 15px 0;
+    padding: 10px 15px;
+  }
+  .content img {
+    max-width: 100%;
+    height: auto;
+  }
+  .content table {
+    font-size: 14px;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .content table tr th,
+  .content table tr td {
+    padding: 6px 12px;
+  }
+  .content ul,
+  .content ol {
+    padding-left: 20px;
+    margin: 10px 0;
+  }
+  .content li {
+    margin: 5px 0;
+  }
+}

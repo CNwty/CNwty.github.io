@@ -179,3 +179,122 @@
     width: 100%;
   }
 }
+@media (max-width: 600px) {
+  #home-head .home-info {
+    width: 300px;
+    height: 300px;
+  }
+  #home-head .home-info .loop {
+    width: 300px;
+    height: 300px;
+  }
+  #home-head .home-info .info {
+    width: 300px;
+    height: 300px;
+  }
+  #home-head .home-info .info .wrap {
+    padding: 15px;
+  }
+  #home-head .home-info .info .wrap h1 {
+    font-size: 36px;
+  }
+  #home-head .home-info .info .wrap h3 {
+    font-size: 18px;
+  }
+  #home-head .home-info .info .wrap h5 {
+    font-size: 12px;
+  }
+  #home-posts-wrap {
+    padding: 15px 0;
+    width: 98%;
+  }
+  #home-posts .post {
+    padding: 15px 20px;
+    margin: 20px 0;
+  }
+  #home-posts .post .title {
+    font-size: 1.5em;
+  }
+  .article {
+    width: 95%;
+    padding: 10px;
+  }
+  .content .language {
+    right: 5%;
+    font-size: 12px;
+  }
+  #archives,
+  .categories-tags {
+    width: 98%;
+  }
+  footer .footer-wrap {
+    width: 100%;
+  }
+  .post .title {
+    font-size: 1.5em !important;
+  }
+  .post .content {
+    font-size: 14px;
+  }
+}
+@media (max-width: 414px) {
+  #menu {
+    line-height: 44px;
+  }
+  #menu .phone-menu {
+    min-height: 44px;
+  }
+  #home-head .home-info {
+    width: 280px;
+    height: 280px;
+  }
+  #home-head .home-info .info {
+    width: 280px;
+    height: 280px;
+  }
+  #home-head .home-info .info .wrap {
+    padding: 10px;
+  }
+  #home-head .home-info .info .wrap h1 {
+    font-size: 32px;
+  }
+  #home-head .home-info .info .wrap h3 {
+    font-size: 16px;
+  }
+  #home-head .home-info .info .wrap h5 {
+    font-size: 11px;
+  }
+  .phone-menu .items .item {
+    min-width: 180px;
+    width: 90%;
+  }
+  ul,
+  ol {
+    padding-left: 15px;
+  }
+}
+@media (max-width: 375px) {
+  #home-head .home-info {
+    width: 260px;
+    height: 260px;
+  }
+  #home-head .home-info .info {
+    width: 260px;
+    height: 260px;
+  }
+  #home-head .home-info .info .wrap h1 {
+    font-size: 28px;
+  }
+  #home-head .home-info .info .wrap h3 {
+    font-size: 14px;
+  }
+  #home-head .home-info .info .wrap h5 {
+    font-size: 10px;
+  }
+  #home-posts .post {
+    padding: 10px 15px;
+  }
+  .article {
+    padding: 5px;
+  }
+}

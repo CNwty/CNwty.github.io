@@ -29,3 +29,24 @@
 .article .content {
   margin: 50px 0;
 }
+@media (max-width: 600px) {
+  .article {
+    top: 70px;
+    padding: 15px 10px;
+    font-size: 16px;
+  }
+  .article h1 {
+    font-size: 1.5em;
+    margin: 15px 0;
+  }
+  .article .info .date,
+  .article .info .category,
+  .article .info .tags {
+    display: block;
+    margin-bottom: 8px;
+  }
+  .article .info .tag {
+    margin-right: 8px;
+    font-size: 14px;
+  }
+}
