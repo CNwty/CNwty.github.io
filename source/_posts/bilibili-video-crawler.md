@@ -101,7 +101,7 @@ bilibili_spider/
 
 项目已包含部分示例数据，您可以查看：
 
-- [热门视频数据](../bilibili_spider/data/)
-- [排行榜数据](../bilibili_spider/data/)
+- [热门视频数据](https://github.com/CNwty/CNwty.github.io/tree/source/bilibili_spider/data)
+- [排行榜数据](https://github.com/CNwty/CNwty.github.io/tree/source/bilibili_spider/data)
 
 这个项目展示了Python爬虫的基本技巧，包括API请求、数据解析、数据存储等技术，是一个非常实用的实践项目。
