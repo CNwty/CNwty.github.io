@@ -102,10 +102,15 @@
     </div>
 
     <div :class="'phone-menu ' + menu_show" id="phone-menu">
-        <a href="/" :class="'title'" @click="menu_show=!menu_show">
-            <span class="logo"><img src="/images/logo.png" alt="Logo" width="36" height="36"></span>
-            <span class="title">花念奴wty</span>
-        </a>
+        <div class="menu-header">
+            <a href="/" class="logo-link">
+                <span class="logo"><img src="/images/logo.png" alt="Logo" width="36" height="36"></span>
+            </a>
+            <a href="/" class="title" @click="menu_show=!menu_show">花念奴wty</a>
+            <span class="menu-toggle" @click="menu_show=!menu_show">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+        </div>
         <div class="items" v-show="menu_show">
             
             <a href="/">

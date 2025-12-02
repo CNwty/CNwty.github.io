@@ -55,34 +55,44 @@
   text-align: center;
   transition: all 0.3s ease-out;
 }
-#menu .phone-menu .title {
-  cursor: pointer;
-  color: menu-default-font;
-  line-height: 50px;
-  display: flex !important;
+#menu .phone-menu .menu-header {
+  display: flex;
   align-items: center;
-  justify-content: flex-start;
-  font-size: 18px;
-  padding-left: 20px;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0 15px;
 }
-#menu .phone-menu .title .logo {
+#menu .phone-menu .menu-header .logo-link {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+#menu .phone-menu .menu-header .logo-link .logo {
   display: inline-block;
-  margin-right: 10px;
-  margin-left: 0.3px;
   vertical-align: middle;
 }
-#menu .phone-menu .title .logo img {
+#menu .phone-menu .menu-header .logo-link .logo img {
   width: 36px;
   height: 36px;
   vertical-align: middle;
   border-radius: 4px;
 }
-#menu .phone-menu .title .title {
-  display: inline-block;
-  vertical-align: middle;
+#menu .phone-menu .menu-header .title {
+  flex: 1 1 auto;
+  cursor: pointer;
+  color: menu-default-font;
+  font-size: 18px;
   font-family: default-font-family;
   text-transform: uppercase;
+  text-align: center;
+  margin: 0 auto;
+  max-width: fit-content;
+}
+#menu .phone-menu .menu-header .menu-toggle {
+  flex: 0 0 auto;
+  cursor: pointer;
   color: menu-default-font;
+  font-size: 18px;
 }
 #menu .phone-menu .items {
   padding: 10px 0 20px;
@@ -114,17 +124,11 @@
   background: rgba(0,0,0,0.6);
 }
 @media (max-width: 600px) {
-  .phone-menu .title {
-    padding: 0 15px;
-  }
-  .phone-menu .title .logo {
-    margin-right: 8px;
-  }
-  .phone-menu .title .logo img {
+  .phone-menu .menu-header .logo-link .logo img {
     width: 32px;
     height: 32px;
   }
-  .phone-menu .title .title {
+  .phone-menu .menu-header .title {
     font-size: 16px;
   }
 }
