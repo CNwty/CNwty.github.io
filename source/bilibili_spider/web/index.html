@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilibili 热门视频实时监控</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f6f8fa; /* wty网站背景色 */
+            min-height: 100vh;
+            color: #000000a6; /* wty网站maiden主题文字色 */
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #ff728bcc; /* wty网站maiden主题标题色 */
+            margin: 0;
+        }
+        
+        .last-updated {
+            color: #9E9E9E; /* wty网站maiden主题标签字体色 */
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        button {
+            background: linear-gradient(120deg, #febbc7 0%, #ffb5de 100%); /* wty网站maiden主题按钮渐变 */
+            color: #333; /* 深色文字提高对比度 */
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        button:hover {
+            background: linear-gradient(120deg, #ffb5de 0%, #febbc7 100%); /* 反向渐变效果 */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            color: #000; /* 悬停时使用更深的文字颜色 */
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            cursor: pointer;
+            background: #f0f0f0;
+            transition: all 0.3s;
+            color: #333; /* 更清晰的文字颜色 */
+            font-weight: 500;
+        }
+        
+        .tab:hover {
+            background: #e0e0e0;
+            color: #000;
+        }
+        
+        .tab.active {
+            background: #fe8ea2cc; /* wty网站maiden主题菜单默认字体色 */
+            color: white;
+            font-weight: 600;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(254, 142, 162, 0.2); /* wty网站maiden主题色调 */
+            border-color: #fe8ea240;
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+        
+        .video-duration {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        
+        .video-info {
+            padding: 15px;
+        }
+        
+        .video-title {
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            color: #000000a6; /* wty网站maiden主题文字色 */
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.4;
+        }
+        
+        .video-stats {
+            display: flex;
+            justify-content: space-between;
+            color: #666; /* 更清晰的文字颜色 */
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        
+        .video-author {
+            color: #ff728bcc; /* wty网站maiden主题标题色 */
+            font-weight: 500;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #9E9E9E; /* wty网站maiden主题标签字体色 */
+        }
+        
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff728bcc; /* wty网站maiden主题标题色 */
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #9E9E9E; /* wty网站maiden主题标签字体色 */
+        }
+        
+        .update-interval {
+            color: #fe8ea2cc; /* wty网站maiden主题菜单默认字体色 */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bilibili 热门视频实时监控</h1>
+            <div class="last-updated" id="lastUpdated">最后更新: 正在加载...</div>
+        </header>
+        
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number" id="trendingCount">0</div>
+                <div class="stat-label">热门视频</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="rankingCount">0</div>
+                <div class="stat-label">排行榜视频</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number"><span class="update-interval">5</span></div>
+                <div class="stat-label">更新间隔(分钟)</div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="refresh-btn" onclick="refreshData()">手动刷新数据</button>
+            <button onclick="toggleAutoUpdate()">自动更新: <span id="autoUpdateStatus">开启</span></button>
+            <button onclick="goHome()">返回首页</button>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('trending')">热门视频</div>
+            <div class="tab" onclick="switchTab('ranking')">全站排行榜</div>
+        </div>
+        
+        <div id="trending" class="tab-content active">
+            <div id="trendingContent" class="loading">正在加载热门视频数据...</div>
+        </div>
+        
+        <div id="ranking" class="tab-content">
+            <div id="rankingContent" class="loading">正在加载排行榜数据...</div>
+        </div>
+    </div>
+
+    <script>
+        let autoUpdateEnabled = true;
+        let updateInterval = 300000; // 5分钟更新一次 (5 * 60 * 1000)
+        let updateTimer = null;
+        
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            updateData();
+            startAutoUpdate();
+        });
+        
+        // 获取数据并更新页面
+        async function updateData() {
+            try {
+                // 更新热门视频
+                const trendingResponse = await fetch('/api/trending');
+                const trendingData = await trendingResponse.json();
+                updateVideoGrid('trendingContent', trendingData);
+                document.getElementById('trendingCount').textContent = trendingData.length;
+                
+                // 更新排行榜
+                const rankingResponse = await fetch('/api/ranking');
+                const rankingData = await rankingResponse.json();
+                updateVideoGrid('rankingContent', rankingData);
+                document.getElementById('rankingCount').textContent = rankingData.length;
+                
+                // 更新最后更新时间
+                document.getElementById('lastUpdated').textContent = '最后更新: ' + new Date().toLocaleString('zh-CN');
+            } catch (error) {
+                console.error('获取数据失败:', error);
+                document.getElementById('trendingContent').innerHTML = '<div class="loading">加载失败: ' + error.message + '</div>';
+                document.getElementById('rankingContent').innerHTML = '<div class="loading">加载失败: ' + error.message + '</div>';
+            }
+        }
+        
+        // 更新视频网格
+        function updateVideoGrid(containerId, videos) {
+            const container = document.getElementById(containerId);
+            
+            if (!videos || videos.length === 0) {
+                container.innerHTML = '<div class="loading">暂无数据</div>';
+                return;
+            }
+            
+            const videoCards = videos.map(video => createVideoCard(video)).join('');
+            container.innerHTML = `<div class="video-grid">${videoCards}</div>`;
+        }
+        
+        // 创建视频卡片
+        function createVideoCard(video) {
+            // 处理时长格式化
+            const duration = formatDuration(video.duration || 0);
+            
+            // 处理播放量
+            const viewCount = formatViewCount(video.stat?.view || 0);
+            
+            // 处理点赞数
+            const likeCount = formatViewCount(video.stat?.like || 0);
+            
+            // 确保图片URL正确，使用代理来避免CORS问题
+            let picUrl = video.pic || 'https://via.placeholder.com/300x180?text=No+Image';
+            // 如果是B站图片URL，使用代理
+            if (picUrl && picUrl.includes('hdslb.com')) {
+                picUrl = `/api/image-proxy?url=${encodeURIComponent(picUrl)}`;
+            }
+            
+            // 构建视频链接
+            let videoUrl = `https://www.bilibili.com/video/${video.bvid || ''}`;
+            if (!video.bvid) {
+                // 如果没有bvid，尝试使用aid构建链接
+                if (video.aid) {
+                    videoUrl = `https://www.bilibili.com/video/av${video.aid}`;
+                } else {
+                    videoUrl = '#'; // 如果都没有，则使用占位符
+                }
+            }
+            
+            return `
+                <div class="video-card">
+                    <a href="${videoUrl}" target="_blank" style="text-decoration: none; color: inherit;">
+                        <div class="video-thumbnail">
+                            <img src="${picUrl}" alt="${video.title || '视频缩略图'}" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x180?text=No+Image';">
+                            <div class="video-duration">${duration}</div>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">${video.title || '无标题'}</div>
+                            <div class="video-stats">
+                                <span>播放: ${viewCount}</span>
+                                <span>点赞: ${likeCount}</span>
+                            </div>
+                            <div class="video-author">${video.owner?.name || '未知UP主'}</div>
+                        </div>
+                    </a>
+                </div>
+            `;
+        }
+        
+        // 格式化时长
+        function formatDuration(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+        
+        // 格式化播放量
+        function formatViewCount(count) {
+            if (count >= 10000) {
+                return (count / 10000).toFixed(1) + '万';
+            }
+            return count.toString();
+        }
+        
+        // 切换标签页
+        function switchTab(tabName) {
+            // 移除所有active类
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // 添加active类到当前标签和内容
+            document.querySelector(`.tab[onclick="switchTab('${tabName}')"]`).classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+        
+        // 手动刷新数据
+        async function refreshData() {
+            const refreshBtn = document.querySelector('.refresh-btn');
+            const originalText = refreshBtn.textContent;
+            refreshBtn.textContent = '刷新中...';
+            refreshBtn.disabled = true;
+            
+            await updateData();
+            
+            refreshBtn.textContent = '刷新成功!';
+            setTimeout(() => {
+                refreshBtn.textContent = originalText;
+                refreshBtn.disabled = false;
+            }, 1000);
+        }
+        
+        // 开始自动更新
+        function startAutoUpdate() {
+            if (autoUpdateEnabled) {
+                updateTimer = setInterval(updateData, updateInterval);
+            }
+        }
+        
+        // 停止自动更新
+        function stopAutoUpdate() {
+            if (updateTimer) {
+                clearInterval(updateTimer);
+                updateTimer = null;
+            }
+        }
+        
+        // 切换自动更新
+        function toggleAutoUpdate() {
+            autoUpdateEnabled = !autoUpdateEnabled;
+            document.getElementById('autoUpdateStatus').textContent = autoUpdateEnabled ? '开启' : '关闭';
+            
+            if (autoUpdateEnabled) {
+                startAutoUpdate();
+            } else {
+                stopAutoUpdate();
+            }
+        }
+        
+        // 返回首页
+        function goHome() {
+            window.location.href = 'http://localhost:4000/';
+        }
+    </script>
+</body>
+</html>
