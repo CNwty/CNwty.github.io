@@ -647,8 +647,30 @@ a {
   cursor: pointer;
   color: rgba(254,142,162,0.8);
   line-height: 50px;
-  display: block;
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
   font-size: 18px;
+  padding-left: 20px;
+}
+#menu .phone-menu .title .logo {
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: 0.3px;
+  vertical-align: middle;
+}
+#menu .phone-menu .title .logo img {
+  width: 36px;
+  height: 36px;
+  vertical-align: middle;
+  border-radius: 4px;
+}
+#menu .phone-menu .title .title {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: Kosugi;
+  text-transform: uppercase;
+  color: rgba(254,142,162,0.8);
 }
 #menu .phone-menu .items {
   padding: 10px 0 20px;
@@ -678,6 +700,21 @@ a {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.6);
+}
+@media (max-width: 600px) {
+  .phone-menu .title {
+    padding: 0 15px;
+  }
+  .phone-menu .title .logo {
+    margin-right: 8px;
+  }
+  .phone-menu .title .logo img {
+    width: 32px;
+    height: 32px;
+  }
+  .phone-menu .title .title {
+    font-size: 16px;
+  }
 }
 .hidden-menu {
   top: -70px !important;
