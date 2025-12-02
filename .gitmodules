@@ -1,0 +1,3 @@
+[submodule "themes/particle"]
+	path = themes/particle
+	url = https://github.com/CNwty/hexo-theme-particle.git
