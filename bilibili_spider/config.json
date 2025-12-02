@@ -1,0 +1,1 @@
+{"crawl_interval":30,"data_dir":"./data","max_retry_times":3,"delay_range":[1,3]}
