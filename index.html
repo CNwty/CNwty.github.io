@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>花念奴wty || 技进乎道，文以载道</title>
+    <meta name="author" content="花念奴wty">
+    <meta name="description" content="分享技术，记录成长，花念奴wty的个人博客 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/1.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                    <nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="logo"><img src="/images/logo.png" alt="Logo" width="36" height="36"></span>
+            <span class="title">念奴wty</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>首页</span>
+        </a>
+        
+        <a href="/项目">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>项目</span>
+        </a>
+        
+        <a target="_blank" rel="noopener" href="http://localhost:5000/">
+            <span>
+                <a-icon type="youtube" theme="filled" />
+            </span>
+            <span>B站</span>
+        </a>
+        
+        <a href="/联系">
+            <span>
+                <a-icon type="contacts" theme="filled" />
+            </span>
+            <span>联系</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>归档</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>分类</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>标签</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>花念奴wty</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
+                </div>
+            </a>
+            
+            <a href="/项目">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">项目</div>
+                </div>
+            </a>
+            
+            <a target="_blank" rel="noopener" href="http://localhost:5000/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="youtube" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">B站</div>
+                </div>
+            </a>
+            
+            <a href="/联系">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="contacts" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">联系</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                    <div id="home-head" style=background-image:url('home.jpg')>
+    <script>
+        var menu = document.getElementById("menu")
+        menu.className += " menu-color"
+    </script>
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>花念奴wty</h1>
+                <h3 id="rotating-subtitle">技进乎道，文以载道</h3>
+                <h5 id="rotating-description">分享技术，记录成长，花念奴wty的个人博客</h5>
+            </div>
+        </span>
+    </div>
+     
+</div>
+
+
+
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+
+        <div id="posts">
+            
+
+<div class="post">
+
+    <a href="/2025/12/02/test-page/">
+        <h2>
+            测试页面
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/测试">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                测试
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2025/12/2
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="测试页面"><a href="#测试页面" class="headerlink" title="测试页面"></a>测试页面</h1><p>这是一个用于测试的示例博客文章。</p>
+<h2 id="测试内容"><a href="#测试内容" class="headerlink" title="测试内容"></a>测试内容</h2><p>这是一篇用于测试博客主题效果的文章，包含各种元素：</p>
+<h3 id="列表测试"><a href="#列表测试" class="headerlink" title="列表测试"></a>列表测试</h3><ul>
+<li>项目 1</li>
+<li>项目 2</li>
+<li>项目 3</li>
+</ul>
+<h3 id="代码块测试"><a href="#代码块测试" class="headerlink" title="代码块测试"></a>代码块测试</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Hello World&#x27;</span>);</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;This is a test function&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="引用测试"><a href="#引用测试" class="headerlink" title="引用测试"></a>引用测试</h3><blockquote>
+<p>这是一段引用文字，用于测试页面的样式效果。</p>
+</blockquote>
+<h3 id="表格测试"><a href="#表格测试" class="headerlink" title="表格测试"></a>表格测试</h3><table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>年龄</th>
+<th>职业</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>张三</td>
+<td>25</td>
+<td>工程师</td>
+</tr>
+<tr>
+<td>李四</td>
+<td>30</td>
+<td>设计师</td>
+</tr>
+<tr>
+<td>王五</td>
+<td>28</td>
+<td>产品经理</td>
+</tr>
+</tbody></table>
+<p>感谢您查看这个测试页面！</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/测试" style=color:#ffa2c4>
+                测试
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/示例" style=color:#1bccbc>
+                示例
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/博客" style=color:#1bccbc>
+                博客
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2025/12/02/test-page/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+
+             
+<div class="page-current">
+
+    <div class="prev">
+        
+    </div>
+
+    <div class="page-index">
+
+        
+
+        <span class="current">
+            1
+        </span>
+
+        
+
+    </div>
+
+    <div class="next">
+        
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="images/1.png " alt="头像">
+        </div>
+        <div class="name">
+            花念奴wty
+        </div>
+                                <div class="descriptions">
+            
+            <div class="description">
+                探索技术，追求卓越
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://github.com/wtyss">
+
+                    
+                    <a-icon type="github"
+                        theme="filled" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://twitter.com/wty">
+
+                    
+                    <a-icon type="twitter"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a href="/">
+                    个人主页
+                </a>
+            </div>
+            
+            <div class="friend-link">
+                <a href="/archives">
+                    技术分享
+                </a>
+            </div>
+            
+        </div>
+    </a-card>
+</a-affix>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2025 花念奴wty
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @花念奴wty
+        </div>
+        <div></div>
+                <div>基于 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo 引擎</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle 主题</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                暂未备案
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100,
+            currentSubtitleIndex: 0,
+            currentDescriptionIndex: 0
+        },
+        created: function () {
+            var that = this
+            
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this;
+            // 定义格言数组 - 增加更多格言
+            var subtitles = [
+                "技进乎道，文以载道", 
+                "分享技术，记录成长", 
+                "知行合一，学以致用",
+                "学而时习之，不亦说乎",
+                "温故而知新", 
+                "知之者不如好之者，好之者不如乐之者",
+                "博学之，审问之，慎思之，明辨之，笃行之",
+                "路漫漫其修远兮，吾将上下而求索",
+                "山重水复疑无路，柳暗花明又一村"
+            ];
+            var descriptions = [
+                "花念奴wty的个人技术空间", 
+                "记录点滴，分享感悟", 
+                "探索技术，追求卓越",
+                "技术分享，知识传承",
+                "编程路上，永不止步",
+                "代码如诗，逻辑为韵", 
+                "学无止境，勤于思考",
+                "技术创新，开拓进取",
+                "专注技术，创造价值",
+                "技术人生，精彩纷呈",
+                "代码世界，自由翱翔"
+            ];
+            
+            // 设置随机格言轮播
+            setInterval(function() {
+                // 随机选择新的格言索引
+                var newSubtitleIndex = Math.floor(Math.random() * subtitles.length);
+                var newDescriptionIndex = Math.floor(Math.random() * descriptions.length);
+                
+                // 更新DOM元素内容和添加动画效果
+                var subtitleElement = document.getElementById('rotating-subtitle');
+                var descriptionElement = document.getElementById('rotating-description');
+                
+                if (subtitleElement) {
+                    subtitleElement.classList.add('fade-out');
+                    setTimeout(function() {
+                        subtitleElement.textContent = subtitles[newSubtitleIndex];
+                        subtitleElement.classList.remove('fade-out');
+                        subtitleElement.classList.add('fade-in');
+                        setTimeout(function() {
+                            subtitleElement.classList.remove('fade-in');
+                        }, 600);
+                    }, 300);
+                }
+                
+                if (descriptionElement) {
+                    descriptionElement.classList.add('fade-out');
+                    setTimeout(function() {
+                        descriptionElement.textContent = descriptions[newDescriptionIndex];
+                        descriptionElement.classList.remove('fade-out');
+                        descriptionElement.classList.add('fade-in');
+                        setTimeout(function() {
+                            descriptionElement.classList.remove('fade-in');
+                        }, 600);
+                    }, 300);
+                }
+            }, 5000); // 每5秒随机切换一次
+            
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>
