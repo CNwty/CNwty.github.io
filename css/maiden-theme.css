@@ -1202,10 +1202,13 @@ footer .footer-icon {
     width: 350px;
     height: 350px;
     background: rgba(255,255,255,0.651);
-    padding: 25px;
+    padding: 0;
+    position: relative;
+    z-index: 2;
   }
   #home-head .home-info .info .wrap {
     padding: 25px;
+    text-align: center;
   }
   #home-head .home-info .info .wrap h1 {
     font-size: 46px;
