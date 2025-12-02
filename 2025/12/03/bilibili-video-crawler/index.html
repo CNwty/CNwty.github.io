@@ -10,14 +10,14 @@
     <meta name="description" content="分享技术，记录成长，wty.codes的个人博客 ">
     <meta name="keywords" content=" ">
     <link rel="icon" href="/images/1.png">
-    <link rel="stylesheet" href="/css/antd.min.css?v=1764710710662">
+    <link rel="stylesheet" href="/css/antd.min.css?v=1764710966770">
     
-    <link rel="stylesheet" href="/css/maiden-theme.css?v=1764710710662">
+    <link rel="stylesheet" href="/css/maiden-theme.css?v=1764710966770">
     
-    <link rel="stylesheet" href="/css/menu.css?v=1764710710662">
-    <link rel="stylesheet" href="/css/layout.css?v=1764710710662">
-    <script src="/js/vue.js?v=1764710710662"></script>
-    <script src="/js/antd.min.js?v=1764710710662"></script>
+    <link rel="stylesheet" href="/css/menu.css?v=1764710966770">
+    <link rel="stylesheet" href="/css/layout.css?v=1764710966770">
+    <script src="/js/vue.js?v=1764710966770"></script>
+    <script src="/js/antd.min.js?v=1764710966770"></script>
 <meta name="generator" content="Hexo 8.1.1"></head>
 
 <body>
@@ -220,28 +220,28 @@
             
             <span class="tag">
                 
-                <a href="/tags/Python" style=color:#879cff>
+                <a href="/tags/Python" style=color:#1bccbc>
                     Python
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/爬虫" style=color:#1bccbc>
+                <a href="/tags/爬虫" style=color:#ff7d73>
                     爬虫
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/B站" style=color:#1bccbc>
+                <a href="/tags/B站" style=color:#ff7d73>
                     B站
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/数据分析" style=color:#1bccbc>
+                <a href="/tags/数据分析" style=color:#ff7d73>
                     数据分析
                 </a>
             </span>
@@ -252,6 +252,8 @@
 
     <div class="content" v-pre>
         <h1 id="哔哩哔哩热门视频爬取项目"><a href="#哔哩哔哩热门视频爬取项目" class="headerlink" title="哔哩哔哩热门视频爬取项目"></a>哔哩哔哩热门视频爬取项目</h1><h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><p>这是一个用于爬取哔哩哔哩（Bilibili）热门视频数据的Python项目。该项目能够获取B站的热门视频信息，包括视频标题、UP主信息、播放量、点赞数等关键数据。</p>
+<span id="more"></span>
+
 <h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">bilibili_spider/</span><br><span class="line">├── main.py          # 主程序入口</span><br><span class="line">├── config.json      # 配置文件</span><br><span class="line">├── data/            # 数据存储目录</span><br><span class="line">├── spiders/         # 爬虫模块</span><br><span class="line">│   └── video_spider.py</span><br><span class="line">├── utils/           # 工具函数</span><br><span class="line">│   └── helpers.py</span><br><span class="line">├── web_server.py    # Web服务器</span><br><span class="line">├── start_web_server.bat  # Windows启动脚本</span><br><span class="line">├── requirements.txt # 依赖包列表</span><br><span class="line">└── web/</span><br><span class="line">    └── index.html   # 前端页面</span><br></pre></td></tr></table></figure>
 
 <h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><ol>
