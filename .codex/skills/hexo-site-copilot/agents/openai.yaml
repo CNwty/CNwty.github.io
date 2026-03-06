@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hexo Site Copilot"
+  short_description: "按官方文档维护、配置、构建、部署与排查 Hexo 站点"
+  default_prompt: "Use $hexo-site-copilot to inspect a Hexo repository, align changes with official docs, and apply the smallest safe site, theme, content, or deploy update."
