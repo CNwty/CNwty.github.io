@@ -1,0 +1,66 @@
+.card-style {
+  text-align: center;
+}
+.card-style .avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.card-style .name {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.card-style .descriptions {
+  margin: 15px 0;
+}
+.card-style .descriptions .description {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+  min-height: 20px;
+}
+.card-style .icon-links {
+  margin: 15px 0;
+}
+.card-style .icon-links .icon-link {
+  margin: 0 5px;
+}
+.card-style .icon-links .icon-link a {
+  color: #666;
+}
+.card-style .icon-links .icon-link a:hover {
+  color: #1890ff;
+}
+.card-style .friend-links {
+  margin-top: 15px;
+}
+.card-style .friend-links .friend-link {
+  margin: 5px 0;
+}
+.card-style .friend-links .friend-link a {
+  color: #666;
+  text-decoration: none;
+}
+.card-style .friend-links .friend-link a:hover {
+  color: #1890ff;
+}
+@media (max-width: 600px) {
+  .card-style .avatar img {
+    width: 80px;
+    height: 80px;
+  }
+  .card-style .name {
+    font-size: 16px;
+  }
+  .card-style .descriptions .description {
+    font-size: 13px;
+  }
+  .card-style .icon-links .icon-link {
+    margin: 0 3px;
+  }
+  .card-style .icon-links .icon-link a {
+    font-size: 14px;
+  }
+}
