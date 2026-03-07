@@ -2,11 +2,26 @@
   font-family: 'CascadiaCode';
   src: url("../css/fonts/CascadiaCode.ttf");
 }
+@font-face {
+  font-family: 'Kosugi';
+  src: url("../css/fonts/Kosugi.ttf");
+}
+@font-face {
+  font-family: 'FusionPixel';
+  src: url("../css/fonts/FusionPixel-12px-zh_hans.ttf");
+  font-display: swap;
+}
 body {
   background: body-background;
   width: 100%;
   font-family: default-font-family;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.8;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: auto;
+  color: text-font;
 }
 * {
   margin: 0;
@@ -34,26 +49,29 @@ h5 {
   color: text-font;
 }
 h1 {
-  font-size: 30px;
+  font-size: 36px;
 }
 h2 {
-  font-size: 27px;
+  font-size: 30px;
 }
 h3 {
   font-size: 24px;
 }
 h4 {
-  font-size: 21px;
+  font-size: 20px;
 }
 h5 {
   font-size: 18px;
 }
 p {
   margin: 15px 0;
-  line-height: 1.7;
+  font-size: 16px;
+  line-height: 1.85;
+  color: text-font;
 }
 a {
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 .icon {
   margin-right: 5px;

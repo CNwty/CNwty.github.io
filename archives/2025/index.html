@@ -5,23 +5,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>花念奴wty || 技进乎道，文以载道</title>
-    <meta name="author" content="花念奴wty">
-    <meta name="description" content="分享技术，记录成长，wty.codes的个人博客 ">
-    <meta name="keywords" content=" ">
-    <link rel="icon" href="/images/1.png">
-    <link rel="stylesheet" href="/css/antd.min.css?v=1772837392714">
+    <title>花念奴手记 || 技进乎道，文以载道</title>
+    <meta name="author" content="wty">
+    <meta name="description" content="分享技术、记录成长，也持续打磨这个长期维护中的个人站点。 ">
+    <meta name="keywords" content="Hexo, 前端, 博客, 站点设计 ">
+    <meta name="theme-color" content="#5877b8">
+    <link rel="icon" href="/images/avatar-transparent.png">
+    <link rel="stylesheet" href="/css/antd.min.css?v=1772869613093">
     
-    <link rel="stylesheet" href="/css/maiden-theme.css?v=1772837392714">
+    <link rel="stylesheet" href="/css/maiden-theme.css?v=1772869613093">
     
-    <link rel="stylesheet" href="/css/menu.css?v=1772837392714">
-    <link rel="stylesheet" href="/css/layout.css?v=1772837392714">
-    <script src="/js/vue.js?v=1772837392714"></script>
-    <script src="/js/antd.min.js?v=1772837392714"></script>
+    <link rel="stylesheet" href="/css/menu.css?v=1772869613093">
+    <link rel="stylesheet" href="/css/layout.css?v=1772869613093">
+    <link rel="stylesheet" href="/css/live2d-panel.css?v=1772869613093">
+    <script src="/js/vue.js?v=1772869613093"></script>
+    <script src="/js/antd.min.js?v=1772869613093"></script>
 <meta name="generator" content="Hexo 8.1.1"></head>
 
-<body>
-
+<body class="inner-page page-layout-archives">
     <div id="loading"
         style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
         <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
@@ -29,12 +30,21 @@
         <div
             style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
             <div id="loadcontent"
-                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
-                <div>
+                style="width:400px;height:400px;padding:50px;display:flex;justify-content:center;align-items:center;text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div class="mc-loading-card">
+                    <div class="mc-grass-loader" aria-hidden="true">
+                        <div class="mc-grass-block">
+                            <span class="mc-grass-top"></span>
+                            <span class="mc-grass-face"></span>
+                            <span class="mc-grass-shadow"></span>
+                        </div>
+                    </div>
                     <h2>LOADING...</h2>
-                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
-                    <div>
-                        <img src="/dancingkitty.gif" alt="loading">
+                    <p>草方块加载中，首次打开会稍慢一点，缓存后会更顺畅。</p>
+                    <div class="mc-loading-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
                 </div>
             </div>
@@ -43,14 +53,14 @@
 
     <div id="layout">
         <transition name="into">
-            <div v-show="show_page" style="display: none;">
+            <div v-show="show_page">
                 <div id="menu_show">
                     <nav id="menu">
     <div class="desktop-menu">
-        <a href="/">
-            <span class="logo"><img src="/images/logo.png" alt="Logo" width="36" height="36"></span>
-            <span class="title">念奴wty</span>
+        <a href="/" class="brand-link">
+            <span class="logo"><img src="/images/avatar-transparent.png?v=1772869613093" alt="Logo"></span>
         </a>
+        
         
         <a href="/">
             <span>
@@ -59,40 +69,38 @@
             <span>首页</span>
         </a>
         
+        
         <a href="/项目">
             <span>
-                <a-icon type="folder" theme="filled" />
+                <a-icon type="folder-open" theme="filled" />
             </span>
             <span>项目</span>
         </a>
         
-        <a target="_blank" rel="noopener" href="http://localhost:5000/">
-            <span>
-                <a-icon type="youtube" theme="filled" />
-            </span>
-            <span>B站</span>
-        </a>
         
         <a href="/联系">
             <span>
-                <a-icon type="contacts" theme="filled" />
+                <a-icon type="mail" theme="filled" />
             </span>
             <span>联系</span>
         </a>
         
+        
         <a href="/archives">
             <span>
-                <a-icon type="folder" theme="filled" />
+                <a-icon type="calendar" theme="filled" />
             </span>
             <span>归档</span>
         </a>
         
+        
         <a href="/categories">
             <span>
-                <a-icon type="book" theme="filled" />
+                <a-icon type="appstore" theme="filled" />
             </span>
             <span>分类</span>
         </a>
+        
         
         <a href="/tags">
             <span>
@@ -105,15 +113,15 @@
 
     <div :class="'phone-menu ' + menu_show" id="phone-menu">
         <div class="menu-header">
-            <a href="/" class="logo-link">
-                <span class="logo"><img src="/images/logo.png" alt="Logo" width="36" height="36"></span>
+            <a href="/" class="logo-link brand-link">
+                <span class="logo"><img src="/images/avatar-transparent.png?v=1772869613093" alt="Logo"></span>
             </a>
-            <a href="/" class="title" @click="menu_show=!menu_show">花念奴wty</a>
-                        <span class="menu-toggle" @click="menu_show=!menu_show">
+            <span class="menu-toggle" @click="menu_show=!menu_show">
                 <img src="/images/menu-toggle-icon.png" alt="Menu" width="24" height="24" style="vertical-align: middle;">
             </span>
         </div>
         <div class="items" v-show="menu_show">
+            
             
             <a href="/">
                 <div class="item">
@@ -124,50 +132,46 @@
                 </div>
             </a>
             
+            
             <a href="/项目">
                 <div class="item">
                     <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="folder" theme="filled" />
+                        <a-icon type="folder-open" theme="filled" />
                     </div>
                     <div style="min-width:100px;max-width: 150%;width: 20%;">项目</div>
                 </div>
             </a>
             
-            <a target="_blank" rel="noopener" href="http://localhost:5000/">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="youtube" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">B站</div>
-                </div>
-            </a>
             
             <a href="/联系">
                 <div class="item">
                     <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="contacts" theme="filled" />
+                        <a-icon type="mail" theme="filled" />
                     </div>
                     <div style="min-width:100px;max-width: 150%;width: 20%;">联系</div>
                 </div>
             </a>
             
+            
             <a href="/archives">
                 <div class="item">
                     <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="folder" theme="filled" />
+                        <a-icon type="calendar" theme="filled" />
                     </div>
                     <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
                 </div>
             </a>
             
+            
             <a href="/categories">
                 <div class="item">
                     <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="book" theme="filled" />
+                        <a-icon type="appstore" theme="filled" />
                     </div>
                     <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
                 </div>
             </a>
+            
             
             <a href="/tags">
                 <div class="item">
@@ -181,8 +185,8 @@
         </div>
         <div class="curtain" v-show="menu_show"></div>
     </div>
-
 </nav>
+
                 </div>
 
                 <div id="main">
@@ -214,14 +218,14 @@
                         
                         <span class="tag">
                             
-                            <a href="/tags/介绍" style=color:#00bcd4>
+                            <a href="/tags/介绍" style=color:#1bccbc>
                                 介绍
                             </a>
                         </span>
                         
                         <span class="tag">
                             
-                            <a href="/tags/博客" style=color:#879cff>
+                            <a href="/tags/博客" style=color:#1bccbc>
                                 博客
                             </a>
                         </span>
@@ -235,126 +239,447 @@
     
 </div>
 
-                     
+                    
 <footer id="footer">
     <div class="footer-wrap">
         <div>
-            © 2018 - 2026 花念奴wty
+            &copy; 2025 - 2026 花念奴手记
             <span class="footer-icon">
                 <a-icon type="flag" theme="filled" /></span>
-            @花念奴wty
+            @wty
         </div>
-        <div></div>
-                <div>基于 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo 引擎</a> & <a
-                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle 主题</a></div>
-        
-        <div>
-            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
-                暂未备案
-            </a>
-        </div>
+        <div>基于 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 构建，主题基础来自 <a
+                href="https://github.com/korilin/hexo-theme-particle" target="_blank" rel="noopener">Particle</a></div>
         
     </div>
-
 </footer>
 
 <script src="/js/highlight.min.js"></script>
 <script src="/js/particle.js"></script>
+
                 </div>
             </div>
         </transition>
     </div>
 
+    <div id="custom-live2d-shell" class="custom-live2d-shell" aria-label="小兔猪互动看板娘">
+    <div class="custom-live2d-status">
+        <span class="custom-live2d-name">小兔猪</span>
+        <span id="custom-live2d-text">固定为 Q 版垂耳兔，点击人物切换动作和表情，水印常驻。</span>
+    </div>
+
+    <div id="custom-live2d-stage" class="custom-live2d-stage"></div>
+</div>
+
+<script>
+    window.__customLive2DConfig = {
+        modelPath: "/live2d/xiaotuzhu/xiaotuzhu.model3.json?v=1772869613095",
+        idleGroup: "idle",
+        timezone: "Asia/Shanghai"
+    };
+</script>
+<script src="/js/vendor/live2d/pixi.min.js?v=1772869613095"></script>
+<script src="/js/vendor/live2d/live2dcubismcore.min.js?v=1772869613095"></script>
+<script src="/js/vendor/live2d/cubism4.min.js?v=1772869613095"></script>
+<script src="/js/custom-live2d.js?v=1772869613095"></script>
+
     <script>
-    new Vue({
+    (function () {
+        function hideLoadingOverlay() {
+            var loading = document.getElementById("loading");
+            var loadcontent = document.getElementById("loadcontent");
+            var loadleft = document.getElementById("loadleft");
+            var loadright = document.getElementById("loadright");
+
+            if (!loading) return;
+            if (loading.getAttribute("data-hidden") === "true") return;
+
+            loading.setAttribute("data-hidden", "true");
+
+            if (loadcontent) {
+                loadcontent.style.opacity = 0;
+            }
+
+            window.setTimeout(function () {
+                if (loadleft) loadleft.style.width = 0;
+                if (loadright) loadright.style.width = 0;
+            }, 220);
+
+            window.setTimeout(function () {
+                loading.style.display = "none";
+            }, 560);
+        }
+
+        window.__hideLoadingOverlay = hideLoadingOverlay;
+
+        if (!window.Vue) {
+            hideLoadingOverlay();
+            return;
+        }
+
+        new Vue({
         el: "#layout",
         data: {
-            show_page: false,
+            show_page: true,
             onload_menu: false,
             menu_show: false,
-            card_top: 100,
-            currentSubtitleIndex: 0,
-            currentDescriptionIndex: 0
+            card_top: 100
         },
         created: function () {
             var that = this
-            
-            window.onload = function () {
+
+            window.addEventListener('load', function () {
                 that.show_page = true
-                document.getElementById("loadcontent").style.opacity = 0
-                setTimeout(function () {
-                    document.getElementById("loadleft").style.width = 0
-                    document.getElementById("loadright").style.width = 0
-                }, 300)
-                setTimeout(function () {
-                    document.getElementById("loading").style = "display:none"
-                }, 600)
-            }
+                hideLoadingOverlay()
+            }, { once: true })
+
+            window.setTimeout(function () {
+                that.show_page = true
+                hideLoadingOverlay()
+            }, 2200)
         },
         mounted: function () {
             var that = this;
-            // 定义格言数组 - 增加更多格言
-            var subtitles = [
-                "技进乎道，文以载道", 
-                "分享技术，记录成长", 
-                "知行合一，学以致用",
-                "学而时习之，不亦说乎",
-                "温故而知新", 
-                "知之者不如好之者，好之者不如乐之者",
-                "博学之，审问之，慎思之，明辨之，笃行之",
-                "路漫漫其修远兮，吾将上下而求索",
-                "山重水复疑无路，柳暗花明又一村"
-            ];
-            var descriptions = [
-                "花念奴wty的个人技术空间", 
-                "记录点滴，分享感悟", 
-                "探索技术，追求卓越",
-                "技术分享，知识传承",
-                "编程路上，永不止步",
-                "代码如诗，逻辑为韵", 
-                "学无止境，勤于思考",
-                "技术创新，开拓进取",
-                "专注技术，创造价值",
-                "技术人生，精彩纷呈",
-                "代码世界，自由翱翔"
-            ];
-            
-            // 设置随机格言轮播
-            setInterval(function() {
-                // 随机选择新的格言索引
-                var newSubtitleIndex = Math.floor(Math.random() * subtitles.length);
-                var newDescriptionIndex = Math.floor(Math.random() * descriptions.length);
-                
-                // 更新DOM元素内容和添加动画效果
-                var subtitleElement = document.getElementById('rotating-subtitle');
-                var descriptionElement = document.getElementById('rotating-description');
-                
-                if (subtitleElement) {
-                    subtitleElement.classList.add('fade-out');
-                    setTimeout(function() {
-                        subtitleElement.textContent = subtitles[newSubtitleIndex];
-                        subtitleElement.classList.remove('fade-out');
-                        subtitleElement.classList.add('fade-in');
+            var subtitles = ["技进乎道，文以载道","关注交付质量，也关心页面气质","从细节出发，做长期可维护的站点","记录真实项目，不堆无效装饰"];
+            var descriptions = ["分享技术，记录成长，也保留一点个人表达。","把博客当成长期维护的软件，而不是一次性页面。","持续整理项目、笔记与实践，让内容更容易被再次使用。","从样式、信息结构到部署流程，一步步打磨清楚。"];
+            var timeScene = {"enable":true,"timezone":"Asia/Shanghai","avatar":"images/avatar-transparent.png","scenes":{"sunrise":"images/scenes/sunrise.png","noon":"images/scenes/noon.png","sunset":"images/scenes/sunset.png","sunset_late":"images/scenes/sunset-late.png","dusk":"images/scenes/dusk.png","night":"images/scenes/night.png"}};
+            var siteRoot = "/";
+            var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var latestSceneKey = 'noon';
+
+            if (subtitles.length && descriptions.length) {
+                setInterval(function() {
+                    var newSubtitleIndex = Math.floor(Math.random() * subtitles.length);
+                    var newDescriptionIndex = Math.floor(Math.random() * descriptions.length);
+                    var subtitleElement = document.getElementById('rotating-subtitle');
+                    var descriptionElement = document.getElementById('rotating-description');
+
+                    if (subtitleElement) {
+                        subtitleElement.classList.add('fade-out');
                         setTimeout(function() {
-                            subtitleElement.classList.remove('fade-in');
-                        }, 600);
-                    }, 300);
-                }
-                
-                if (descriptionElement) {
-                    descriptionElement.classList.add('fade-out');
-                    setTimeout(function() {
-                        descriptionElement.textContent = descriptions[newDescriptionIndex];
-                        descriptionElement.classList.remove('fade-out');
-                        descriptionElement.classList.add('fade-in');
+                            subtitleElement.textContent = subtitles[newSubtitleIndex];
+                            subtitleElement.classList.remove('fade-out');
+                            subtitleElement.classList.add('fade-in');
+                            setTimeout(function() {
+                                subtitleElement.classList.remove('fade-in');
+                            }, 600);
+                        }, 300);
+                    }
+
+                    if (descriptionElement) {
+                        descriptionElement.classList.add('fade-out');
                         setTimeout(function() {
-                            descriptionElement.classList.remove('fade-in');
-                        }, 600);
-                    }, 300);
+                            descriptionElement.textContent = descriptions[newDescriptionIndex];
+                            descriptionElement.classList.remove('fade-out');
+                            descriptionElement.classList.add('fade-in');
+                            setTimeout(function() {
+                                descriptionElement.classList.remove('fade-in');
+                            }, 600);
+                        }, 300);
+                    }
+                }, 5000);
+            }
+
+            if (timeScene.enable && timeScene.scenes) {
+                var scenePaths = timeScene.scenes;
+                var sceneTimezone = timeScene.timezone || 'Asia/Shanghai';
+
+                var applyBeijingScene = function () {
+                    var formatter = new Intl.DateTimeFormat('zh-CN', {
+                        timeZone: sceneTimezone,
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hourCycle: 'h23'
+                    });
+                    var parts = formatter.formatToParts(new Date());
+                    var hour = 0;
+                    var minute = 0;
+
+                    parts.forEach(function (part) {
+                        if (part.type === 'hour') hour = parseInt(part.value, 10);
+                        if (part.type === 'minute') minute = parseInt(part.value, 10);
+                    });
+
+                    var totalMinutes = hour * 60 + minute;
+                    var sceneKey = 'night';
+
+                    if (totalMinutes >= 300 && totalMinutes < 660) {
+                        sceneKey = 'sunrise';
+                    } else if (totalMinutes >= 660 && totalMinutes < 900) {
+                        sceneKey = 'noon';
+                    } else if (totalMinutes >= 900 && totalMinutes < 1020) {
+                        sceneKey = 'sunset';
+                    } else if (totalMinutes >= 1020 && totalMinutes < 1080) {
+                        sceneKey = 'sunset_late';
+                    } else if (totalMinutes >= 1080 && totalMinutes < 1140) {
+                        sceneKey = 'dusk';
+                    }
+
+                    var scenePath = scenePaths[sceneKey] || scenePaths.noon;
+                    if (!scenePath) return;
+
+                    var sceneUrl = scenePath.indexOf('http') === 0 ? scenePath : siteRoot + scenePath;
+                    var isMobileViewport = window.innerWidth <= 900;
+                    var scenePositionMap = {
+                        sunrise: isMobileViewport ? '32% top' : '52% 18%',
+                        noon: isMobileViewport ? '44% top' : '50% 16%',
+                        sunset: isMobileViewport ? '66% top' : '54% 22%',
+                        sunset_late: isMobileViewport ? '72% top' : '56% 24%',
+                        dusk: isMobileViewport ? '56% top' : '52% 20%',
+                        night: isMobileViewport ? '54% top' : '50% 18%'
+                    };
+
+                    [document.documentElement, document.body].forEach(function (target) {
+                        target.style.backgroundImage = "url('" + sceneUrl + "')";
+                        target.style.backgroundRepeat = 'no-repeat';
+                        target.style.backgroundSize = 'cover';
+                        target.style.backgroundAttachment = isMobileViewport ? 'scroll' : 'fixed';
+                        target.style.backgroundPosition = scenePositionMap[sceneKey] || (isMobileViewport ? 'center top' : 'center center');
+                    });
+                    latestSceneKey = sceneKey;
+                    document.body.setAttribute('data-beijing-scene', sceneKey);
+                };
+
+                applyBeijingScene();
+                setInterval(applyBeijingScene, 60000);
+            }
+
+            var initRevealMotion = function () {
+                var targets = document.querySelectorAll('.home-info .wrap, .hero-panel-card, .section-heading, .post, .card-style, .article, #archives, .categories-tags');
+                if (!targets.length) return;
+
+                targets.forEach(function (element, index) {
+                    element.classList.add('reveal-enter');
+                    element.style.setProperty('--reveal-delay', (index % 6) * 70 + 'ms');
+                });
+
+                if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+                    targets.forEach(function (element) {
+                        element.classList.add('is-visible');
+                    });
+                    return;
                 }
-            }, 5000); // 每5秒随机切换一次
-            
-            window.addEventListener('scroll', function (e) {
+
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (!entry.isIntersecting) return;
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    });
+                }, {
+                    threshold: 0.14,
+                    rootMargin: '0px 0px -10% 0px'
+                });
+
+                targets.forEach(function (element) {
+                    observer.observe(element);
+                });
+            };
+
+            var stripHeadingAnchors = function () {
+                var anchors = document.querySelectorAll('.article .content .headerlink, #home-posts .excerpt .content .headerlink');
+                if (!anchors.length) return;
+
+                anchors.forEach(function (anchor) {
+                    anchor.remove();
+                });
+            };
+
+            var initHomeDashboard = function () {
+                if (!document.body.classList.contains('home')) return;
+
+                var clockElement = document.getElementById('dashboard-clock');
+                var dateElement = document.getElementById('dashboard-date');
+                var weekdayElement = document.getElementById('dashboard-weekday');
+                var sceneElement = document.getElementById('dashboard-scene');
+                var btcElement = document.getElementById('dashboard-btc');
+                var ethElement = document.getElementById('dashboard-eth');
+                var timezone = (timeScene && timeScene.timezone) || 'Asia/Shanghai';
+                var sceneNames = {
+                    sunrise: '清晨',
+                    noon: '午后',
+                    sunset: '夕照',
+                    sunset_late: '落日',
+                    dusk: '薄暮',
+                    night: '夜色'
+                };
+                var weekdayNames = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+
+                var updateTimePanel = function () {
+                    var now = new Date();
+                    var clockFormatter = new Intl.DateTimeFormat('zh-CN', {
+                        timeZone: timezone,
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit',
+                        hourCycle: 'h23'
+                    });
+                    var dateFormatter = new Intl.DateTimeFormat('zh-CN', {
+                        timeZone: timezone,
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                    var weekdayFormatter = new Intl.DateTimeFormat('zh-CN', {
+                        timeZone: timezone,
+                        weekday: 'short'
+                    });
+
+                    if (clockElement) {
+                        clockElement.textContent = clockFormatter.format(now);
+                    }
+
+                    if (dateElement) {
+                        dateElement.textContent = dateFormatter.format(now);
+                    }
+
+                    if (weekdayElement) {
+                        var weekdayText = weekdayFormatter.format(now);
+                        weekdayElement.textContent = weekdayNames.find(function (item) {
+                            return weekdayText.indexOf(item.replace('周', '')) !== -1;
+                        }) || weekdayText;
+                    }
+
+                    if (sceneElement) {
+                        sceneElement.textContent = sceneNames[latestSceneKey] || '午后';
+                    }
+                };
+
+                var fetchMarketPanel = function () {
+                    var priceApi = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=cny';
+
+                    fetch(priceApi)
+                        .then(function (response) {
+                            if (!response.ok) throw new Error('price fetch failed');
+                            return response.json();
+                        })
+                        .then(function (data) {
+                            if (btcElement && data.bitcoin && data.bitcoin.cny) {
+                                btcElement.textContent = '¥' + Math.round(data.bitcoin.cny).toLocaleString('zh-CN');
+                            }
+
+                            if (ethElement && data.ethereum && data.ethereum.cny) {
+                                ethElement.textContent = '¥' + Math.round(data.ethereum.cny).toLocaleString('zh-CN');
+                            }
+                        })
+                        .catch(function () {
+                            if (btcElement) btcElement.textContent = '暂不可用';
+                            if (ethElement) ethElement.textContent = '暂不可用';
+                        });
+                };
+
+                updateTimePanel();
+                fetchMarketPanel();
+                setInterval(updateTimePanel, 1000);
+                setInterval(fetchMarketPanel, 300000);
+            };
+
+            var initInteractiveSurfaces = function () {
+                if (prefersReducedMotion || window.matchMedia('(pointer: coarse)').matches) return;
+
+                var surfaces = document.querySelectorAll('.home-info .wrap, .hero-panel-card, .post, .card-style, .article');
+                surfaces.forEach(function (surface) {
+                    surface.classList.add('interactive-surface');
+
+                    surface.addEventListener('pointermove', function (event) {
+                        var rect = surface.getBoundingClientRect();
+                        var x = event.clientX - rect.left;
+                        var y = event.clientY - rect.top;
+                        var rotateY = ((x / rect.width) - 0.5) * 5;
+                        var rotateX = (0.5 - (y / rect.height)) * 4;
+
+                        surface.style.setProperty('--pointer-x', x + 'px');
+                        surface.style.setProperty('--pointer-y', y + 'px');
+                        surface.style.setProperty('--surface-glow', '1');
+                        surface.style.setProperty('--surface-rotate-x', rotateX.toFixed(2) + 'deg');
+                        surface.style.setProperty('--surface-rotate-y', rotateY.toFixed(2) + 'deg');
+                    });
+
+                    surface.addEventListener('pointerleave', function () {
+                        surface.style.setProperty('--surface-glow', '0');
+                        surface.style.setProperty('--surface-rotate-x', '0deg');
+                        surface.style.setProperty('--surface-rotate-y', '0deg');
+                    });
+                });
+            };
+
+            var initHeroParallax = function () {
+                var hero = document.getElementById('home-head');
+                if (!hero || prefersReducedMotion || window.matchMedia('(pointer: coarse)').matches) return;
+
+                var updateHeroMotion = function (event) {
+                    var rect = hero.getBoundingClientRect();
+                    var x = (event.clientX - rect.left) / rect.width;
+                    var y = (event.clientY - rect.top) / rect.height;
+                    var shiftX = (x - 0.5) * 26;
+                    var shiftY = (y - 0.5) * 18;
+                    var tiltX = (0.5 - y) * 5;
+                    var tiltY = (x - 0.5) * 7;
+
+                    hero.style.setProperty('--hero-shift-x', shiftX.toFixed(2) + 'px');
+                    hero.style.setProperty('--hero-shift-y', shiftY.toFixed(2) + 'px');
+                    hero.style.setProperty('--hero-tilt-x', tiltX.toFixed(2) + 'deg');
+                    hero.style.setProperty('--hero-tilt-y', tiltY.toFixed(2) + 'deg');
+                    hero.style.setProperty('--hero-glow-x', (x * 100).toFixed(2) + '%');
+                    hero.style.setProperty('--hero-glow-y', (y * 100).toFixed(2) + '%');
+                };
+
+                hero.addEventListener('pointermove', updateHeroMotion);
+                hero.addEventListener('pointerleave', function () {
+                    hero.style.setProperty('--hero-shift-x', '0px');
+                    hero.style.setProperty('--hero-shift-y', '0px');
+                    hero.style.setProperty('--hero-tilt-x', '0deg');
+                    hero.style.setProperty('--hero-tilt-y', '0deg');
+                    hero.style.setProperty('--hero-glow-x', '50%');
+                    hero.style.setProperty('--hero-glow-y', '35%');
+                });
+            };
+
+            var initHomePostTransitions = function () {
+                var containers = document.querySelectorAll('#home-posts .post a[href], .page-current a[href]');
+                if (!containers.length) return;
+
+                var shouldHandleLink = function (link, event) {
+                    if (!link) return false;
+                    if (link.target === '_blank') return false;
+                    if (event.defaultPrevented) return false;
+                    if (event.button !== 0) return false;
+                    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return false;
+
+                    var href = link.getAttribute('href');
+                    if (!href || href.charAt(0) === '#') return false;
+                    if (/^https?:\/\//.test(href)) return false;
+                    return true;
+                };
+
+                containers.forEach(function (link) {
+                    link.addEventListener('click', function (event) {
+                        if (!shouldHandleLink(link, event)) return;
+                        event.preventDefault();
+
+                        var targetUrl = link.href;
+                        document.body.classList.add('page-transitioning');
+
+                        var postsWrap = document.getElementById('home-posts-wrap');
+                        if (postsWrap) {
+                            postsWrap.classList.add('posts-switching');
+                        }
+
+                        setTimeout(function () {
+                            window.location.href = targetUrl;
+                        }, 260);
+                    });
+                });
+            };
+
+            stripHeadingAnchors();
+            initRevealMotion();
+            initInteractiveSurfaces();
+            initHeroParallax();
+            initHomePostTransitions();
+            initHomeDashboard();
+
+            window.addEventListener('scroll', function () {
                 that.menu_show = false
             })
         },
@@ -367,7 +692,9 @@
             }
         }
     })
+    })()
 </script>
+
 
 </body>
 

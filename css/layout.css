@@ -1,93 +1,68 @@
 @media (min-width: 900px) {
   #menu .desktop-menu {
-    display: block;
+    display: flex;
   }
   #menu .phone-menu {
     display: none;
   }
-  #home-head .home-info {
-    width: 500px;
-    height: 500px;
-  }
-  #home-head .home-info .loop {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    display: inline-block;
-  }
-  #home-head .home-info .info {
-    width: 500px;
-    height: 500px;
-  }
-  #home-head .home-info .info .wrap {
-    padding: 25px;
-  }
-  #home-head .home-info .info .wrap h1 {
-    font-size: 52px;
-    font-weight: bold;
-    font-family: default-font-family;
-    margin-bottom: 10px;
-  }
-  #home-head .home-info .info .wrap h3 {
-    font-size: 24px;
-    margin: 10px 0;
-  }
-  #home-head .home-info .info .wrap h5 {
-    font-size: 16px;
-    margin: 20px 0;
-  }
-  ul,
-  ol {
-    padding-left: 40px;
-  }
   #home-posts-wrap {
-    max-width: 1300px;
-    min-width: 900px;
-    padding: 30px 0;
+    max-width: 1100px;
+    min-width: 0;
+    width: calc(100vw - 400px);
+    padding: 42px 0 72px;
+    gap: 24px;
   }
   .home-posts-wrap-no-card {
-    max-width: 900px !important;
+    max-width: 760px !important;
   }
   #home-posts {
-    width: 800px;
+    width: 100%;
     margin-left: auto;
-    margin-right: 50px;
   }
   #home-posts .post {
-    padding: 50px 50px;
-    margin: 25px 0;
+    padding: 42px 42px 86px;
+    margin: 24px 0;
   }
   #home-posts .post .excerpt {
-    padding: 20px 0;
+    padding: 18px 0;
   }
   #home-card {
+    width: 300px;
     margin-right: auto;
   }
   .article {
-    width: 900px;
+    width: 80vw;
   }
   .content .language {
     right: 80px;
   }
   #archives,
   .categories-tags {
-    width: 900px;
+    width: 84vw;
   }
   footer .footer-wrap {
-    width: 900px;
+    width: 84vw;
   }
 }
 @media (min-width: 900px) and (max-width: 1200px) {
+  #home-head .home-info {
+    grid-template-columns: 1fr;
+    width: 92%;
+  }
+  #home-head .home-info .hero-panel {
+    justify-content: flex-start;
+  }
   #home-posts-wrap {
-    width: 900px;
-    padding: 30px 0;
+    width: 92%;
+    min-width: auto;
+    padding: 40px 0 60px;
   }
   #home-posts {
-    width: 800px;
-    margin: auto;
+    width: calc(100% - 324px);
+    min-width: 0;
   }
   #home-card {
-    display: none;
+    width: 300px;
   }
 }
 @media (max-width: 900px) {
@@ -97,61 +72,52 @@
   #menu .phone-menu {
     display: block;
   }
-  #home-head .home-info {
-    width: 350px;
-    height: 350px;
+  #home-head {
+    min-height: auto;
+    padding: 104px 0 38px;
   }
-  #home-head .home-info .loop {
-    position: absolute;
-    width: 350px;
-    height: 350px;
+  #home-head .home-info {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    width: 94vw;
   }
   #home-head .home-info .info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    width: 350px;
-    height: 350px;
-    background: rgba(255,255,255,0.651);
-    padding: 0;
-    position: relative;
-    z-index: 2;
+    min-height: auto;
+  }
+  #home-head .home-info .info:before {
+    display: none;
   }
   #home-head .home-info .info .wrap {
-    padding: 25px;
-    text-align: center;
+    padding: 24px 22px;
   }
-  #home-head .home-info .info .wrap h1 {
-    font-size: 46px;
-    font-weight: bold;
-    font-family: default-font-family;
-    margin-bottom: 10px;
+  #home-head .home-info .info .wrap .hero-meta {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  #home-head .home-info .info .wrap h3 {
-    font-size: 20px;
-    margin: 10px 0;
+  #home-head .home-info .hero-panel {
+    justify-content: flex-start;
   }
-  #home-head .home-info .info .wrap h5 {
-    font-size: 14px;
-    margin: 20px 0;
+  #home-head .home-info .hero-panel .hero-panel-card {
+    max-width: none;
+    padding: 22px;
+  }
+  #home-head .home-info .hero-panel .hero-dashboard-card .hero-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  #home-head .home-info .hero-panel .hero-dashboard-card .hero-dashboard-item {
+    min-height: 86px;
+  }
+  #home-head .home-info .hero-panel .hero-dashboard-card .hero-dashboard-item.hero-dashboard-item-wide {
+    min-height: 104px;
   }
   ul,
   ol {
     padding-left: 20px;
   }
-  .el-timeline {
-    padding-left: 0;
-  }
-  .el-timeline .el-timeline-item__wrapper {
-    padding-left: 18px;
-  }
-  .el-timeline .el-timeline-item__wrapper .el-card__body {
-    padding: 10px 20px;
-  }
   #home-posts-wrap {
-    padding: 20px 0;
-    width: 95%;
+    padding: 18px 0 40px;
+    width: 94vw;
+    display: block;
   }
   #home-card {
     display: none;
@@ -161,14 +127,14 @@
     width: 100%;
   }
   #home-posts .post {
-    padding: 20px 30px;
-    margin: 30px 0;
+    padding: 26px 24px 82px;
+    margin: 24px 0;
   }
   #home-posts .post .excerpt {
-    padding: 20px 0;
+    padding: 16px 0;
   }
   .article {
-    width: 85%;
+    width: 88%;
   }
   .content .language {
     right: 10%;
@@ -178,48 +144,116 @@
     width: 90%;
   }
   footer .footer-wrap {
-    width: 100%;
+    width: 90%;
   }
 }
 @media (max-width: 600px) {
+  #home-head {
+    padding: 88px 0 24px;
+  }
   #home-head .home-info {
-    width: 300px;
-    height: 300px;
-  }
-  #home-head .home-info .loop {
-    width: 300px;
-    height: 300px;
-  }
-  #home-head .home-info .info {
-    width: 300px;
-    height: 300px;
+    width: 94vw;
+    gap: 14px;
   }
   #home-head .home-info .info .wrap {
-    padding: 15px;
+    padding: 20px 16px;
+  }
+  #home-head .home-info .info .wrap .eyebrow {
+    margin-bottom: 14px;
   }
   #home-head .home-info .info .wrap h1 {
-    font-size: 36px;
+    font-size: clamp(34px, 13vw, 50px);
+    line-height: 0.96;
+    margin-bottom: 14px;
   }
-  #home-head .home-info .info .wrap h3 {
-    font-size: 18px;
+  #home-head .home-info .info .wrap .hero-title {
+    font-size: clamp(18px, 6vw, 24px);
+    margin-bottom: 12px;
   }
-  #home-head .home-info .info .wrap h5 {
-    font-size: 12px;
+  #home-head .home-info .info .wrap .hero-intro {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  #home-head .home-info .info .wrap .hero-badges {
+    gap: 8px;
+    margin-top: 16px;
+  }
+  #home-head .home-info .info .wrap .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  #home-head .home-info .info .wrap .hero-meta {
+    gap: 14px;
+    margin-top: 18px;
+    padding-top: 16px;
+  }
+  #home-head .home-info .info .wrap .hero-socials {
+    gap: 10px;
+  }
+  #home-head .home-info .info .wrap .hero-socials a {
+    width: 40px;
+    height: 40px;
+  }
+  #home-head .home-info .info .wrap .hero-button {
+    width: 100%;
+    min-width: 0;
+  }
+  #home-head .home-info .hero-panel .hero-panel-card {
+    padding: 18px 16px;
+  }
+  #home-head .home-info .hero-panel .hero-panel-card h2 {
+    font-size: 22px;
+    line-height: 1.35;
+  }
+  #home-head .home-info .hero-panel .hero-panel-card p,
+  #home-head .home-info .hero-panel .hero-panel-card li {
+    font-size: 14px;
+    line-height: 1.7;
   }
   #home-posts-wrap {
-    padding: 15px 0;
-    width: 98%;
+    padding: 12px 0 30px;
+    width: 96vw;
+  }
+  #home-posts .section-heading {
+    padding: 18px 16px;
+  }
+  #home-posts .section-heading h2 {
+    font-size: 24px;
+  }
+  #home-posts .section-heading p {
+    font-size: 14px;
+    line-height: 1.7;
   }
   #home-posts .post {
-    padding: 15px 20px;
-    margin: 20px 0;
+    padding: 18px 16px 72px;
+    margin: 16px 0;
   }
-  #home-posts .post .title {
-    font-size: 1.5em;
+  #home-posts .post h2 {
+    font-size: 22px;
+    line-height: 1.35;
+  }
+  #home-posts .post .excerpt .content {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+  #home-posts .post .go-post {
+    right: 14px;
+    bottom: 14px;
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+  #home-posts .page-current .page-index {
+    width: auto;
+  }
+  #home-posts .page-current .page-num,
+  #home-posts .page-current .current,
+  #home-posts .page-current .page-omit {
+    margin: 0 4px;
   }
   .article {
-    width: 95%;
-    padding: 10px;
+    width: 94%;
+    padding: 8px;
   }
   .content .language {
     right: 5%;
@@ -227,76 +261,40 @@
   }
   #archives,
   .categories-tags {
-    width: 98%;
+    width: 96%;
   }
   footer .footer-wrap {
-    width: 100%;
-  }
-  .post .title {
-    font-size: 1.5em !important;
-  }
-  .post .content {
-    font-size: 14px;
+    width: 96%;
   }
 }
-@media (max-width: 414px) {
-  #menu {
-    line-height: 44px;
-  }
-  #menu .phone-menu {
-    min-height: 44px;
-  }
-  #home-head .home-info {
-    width: 280px;
-    height: 280px;
-  }
-  #home-head .home-info .info {
-    width: 280px;
-    height: 280px;
-  }
-  #home-head .home-info .info .wrap {
-    padding: 10px;
-  }
-  #home-head .home-info .info .wrap h1 {
-    font-size: 32px;
-  }
-  #home-head .home-info .info .wrap h3 {
-    font-size: 16px;
-  }
-  #home-head .home-info .info .wrap h5 {
-    font-size: 11px;
-  }
-  .phone-menu .items .item {
-    min-width: 180px;
-    width: 90%;
-  }
-  ul,
-  ol {
-    padding-left: 15px;
+@media (max-width: 480px) {
+  #home-head .home-info .info .wrap .hero-actions {
+    grid-template-columns: 1fr;
   }
 }
-@media (max-width: 375px) {
-  #home-head .home-info {
-    width: 260px;
-    height: 260px;
+@media (max-width: 600px) {
+  body.inner-page {
+    background-position: center top !important;
+    background-size: cover !important;
   }
-  #home-head .home-info .info {
-    width: 260px;
-    height: 260px;
+  body.inner-page #menu_show {
+    height: 60px;
   }
-  #home-head .home-info .info .wrap h1 {
-    font-size: 28px;
+  body.inner-page #menu {
+    position: fixed !important;
+    top: 0 !important;
   }
-  #home-head .home-info .info .wrap h3 {
-    font-size: 14px;
+  body.inner-page .article {
+    width: 96vw;
+    margin-top: 18px !important;
+    margin-bottom: 40px;
+    padding: 14px 12px 18px;
   }
-  #home-head .home-info .info .wrap h5 {
-    font-size: 10px;
+  body.inner-page #archives,
+  body.inner-page .categories-tags {
+    width: 96vw;
   }
-  #home-posts .post {
-    padding: 10px 15px;
-  }
-  .article {
-    padding: 5px;
+  body.inner-page footer .footer-wrap {
+    width: 96vw;
   }
 }

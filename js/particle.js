@@ -4,7 +4,11 @@ window.addEventListener('scroll', function (e) {
     var menu = document.getElementById("menu")
     var home_posts_wrap = document.getElementById("home-posts-wrap")
     var footer = document.getElementById("footer")
-    if (barLocal < newLocal) {
+    var isMobileInnerPage = window.innerWidth <= 600 && document.body.classList.contains('inner-page')
+
+    if (isMobileInnerPage) {
+        menu.className = "show-menu menu-color"
+    } else if (barLocal < newLocal) {
         menu.className = "hidden-menu"
     } else {
         menu.className = "show-menu"

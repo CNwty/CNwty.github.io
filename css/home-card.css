@@ -1,66 +1,94 @@
 .card-style {
+  overflow: hidden;
   text-align: center;
+  border-radius: 28px !important;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(246,250,255,0.98) 100%);
+  border: 1px solid rgba(109,129,163,0.12);
+  box-shadow: 0 20px 46px rgba(86,105,138,0.1);
+}
+.card-style .ant-card-body {
+  padding: 0 28px 28px !important;
+}
+.card-style .card-banner {
+  margin: 0 -28px 22px;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, #f7faff 0%, #eef4ff 100%);
+  color: #5471a3;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+}
+.card-style .avatar {
+  margin-top: -6px;
 }
 .card-style .avatar img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  width: 108px;
+  height: 108px;
+  border-radius: 28px;
   object-fit: cover;
+  box-shadow: 0 16px 38px rgba(89,109,144,0.16);
 }
 .card-style .name {
-  margin-top: 15px;
-  font-size: 18px;
-  font-weight: bold;
+  margin-top: 18px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #304258;
 }
 .card-style .descriptions {
-  margin: 15px 0;
+  margin: 18px 0 20px;
 }
 .card-style .descriptions .description {
-  margin: 5px 0;
-  font-size: 14px;
-  color: #666;
-  min-height: 20px;
+  margin: 8px 0;
+  font-size: 16px;
+  line-height: 1.9;
+  color: rgba(74,90,115,0.74);
 }
 .card-style .icon-links {
-  margin: 15px 0;
-}
-.card-style .icon-links .icon-link {
-  margin: 0 5px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 18px 0 20px;
 }
 .card-style .icon-links .icon-link a {
-  color: #666;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+  color: #5871a0;
+  box-shadow: 0 10px 24px rgba(94,115,149,0.08);
 }
 .card-style .icon-links .icon-link a:hover {
-  color: #1890ff;
+  color: #fff9f3;
+  background: linear-gradient(135deg, #5877b8 0%, #6f93db 100%);
 }
 .card-style .friend-links {
-  margin-top: 15px;
+  margin-top: 10px;
 }
 .card-style .friend-links .friend-link {
-  margin: 5px 0;
+  margin: 10px 0;
 }
 .card-style .friend-links .friend-link a {
-  color: #666;
+  display: block;
+  padding: 14px 18px;
+  border-radius: 16px;
+  color: #48607f;
   text-decoration: none;
+  background: rgba(255,255,255,0.82);
+  font-size: 15px;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 .card-style .friend-links .friend-link a:hover {
-  color: #1890ff;
+  transform: translateY(-2px);
+  background: rgba(240,246,255,0.98);
 }
 @media (max-width: 600px) {
   .card-style .avatar img {
-    width: 80px;
-    height: 80px;
+    width: 88px;
+    height: 88px;
   }
   .card-style .name {
-    font-size: 16px;
-  }
-  .card-style .descriptions .description {
-    font-size: 13px;
-  }
-  .card-style .icon-links .icon-link {
-    margin: 0 3px;
-  }
-  .card-style .icon-links .icon-link a {
-    font-size: 14px;
+    font-size: 20px;
   }
 }

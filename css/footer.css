@@ -1,16 +1,18 @@
 footer {
   position: relative;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 700;
   z-index: 103;
   width: 100%;
   text-align: center;
-  top: 150px;
+  top: 72px;
 }
 footer .footer-wrap {
   border-top: 1px solid footer-line;
-  width: 900px;
+  width: min(900px, calc(100% - 36px));
   margin: auto;
   color: label-font;
+  background: transparent;
 }
 footer .footer-wrap div {
   margin: 15px;
@@ -24,4 +26,9 @@ footer .footer-icon {
   margin: 0 10px;
   color: default-link;
   font-size: 18px;
+}
+@media (max-width: 900px) {
+  footer {
+    top: 44px;
+  }
 }
