@@ -187,12 +187,6 @@ body.inner-page {
   margin: 8px 0;
   color: rgba(58,74,98,0.82);
 }
-#live2d-widget {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-#live2d-widget:hover {
-  transform: translateY(-4px);
-}
 .reveal-enter {
   opacity: 0;
   transform: translate3d(0, 26px, 0) scale(0.985);
@@ -367,9 +361,6 @@ body.page-transitioning #loading {
 .friend-link a:hover:before {
   left: 155%;
 }
-#live2d-widget {
-  animation: live2d-bob 4.8s ease-in-out infinite;
-}
 @media (prefers-reduced-motion: reduce) {
   #home-head:before,
   #home-head:after,
@@ -394,15 +385,13 @@ body.page-transitioning #loading {
   .hero-button,
   .go-post,
   .icon-link a,
-  .friend-link a,
-  #live2d-widget {
+  .friend-link a {
     animation: none !important;
   }
   .hero-button:before,
   .go-post:before,
   .icon-link a:before,
-  .friend-link a:before,
-  #live2d-widget:before {
+  .friend-link a:before {
     display: none;
   }
 }
@@ -448,10 +437,6 @@ body.page-transitioning #loading {
   }
   #home-head .home-overlay:after {
     display: none;
-  }
-  #live2d-widget {
-    transform: scale(0.85);
-    transform-origin: right bottom;
   }
   .interactive-surface:hover {
     transform: none;
@@ -545,49 +530,5 @@ body.page-transitioning #loading {
   50% {
     transform: translateY(-5px) scale(1.08);
     opacity: 1;
-  }
-}
-@-moz-keyframes live2d-bob {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-@-webkit-keyframes live2d-bob {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-@-o-keyframes live2d-bob {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-@keyframes live2d-bob {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(0);
   }
 }
