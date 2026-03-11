@@ -11,14 +11,14 @@
     <meta name="keywords" content="Hexo, 前端, 博客, 站点设计 ">
     <meta name="theme-color" content="#5877b8">
     <link rel="icon" href="/images/avatar-transparent.png">
-    <link rel="stylesheet" href="/css/antd.min.css?v=1773190840789">
+    <link rel="stylesheet" href="/css/antd.min.css?v=1773194617367">
     
-    <link rel="stylesheet" href="/css/maiden-theme.css?v=1773190840789">
+    <link rel="stylesheet" href="/css/maiden-theme.css?v=1773194617367">
     
-    <link rel="stylesheet" href="/css/menu.css?v=1773190840789">
-    <link rel="stylesheet" href="/css/layout.css?v=1773190840789">
-    <script src="/js/vue.js?v=1773190840789"></script>
-    <script src="/js/antd.min.js?v=1773190840789"></script>
+    <link rel="stylesheet" href="/css/menu.css?v=1773194617367">
+    <link rel="stylesheet" href="/css/layout.css?v=1773194617367">
+    <script src="/js/vue.js?v=1773194617367"></script>
+    <script src="/js/antd.min.js?v=1773194617367"></script>
 <meta name="generator" content="Hexo 8.1.1"></head>
 
 <body class="inner-page page-layout-post">
@@ -31,20 +31,13 @@
             <div id="loadcontent"
                 style="width:400px;height:400px;padding:50px;display:flex;justify-content:center;align-items:center;text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
                 <div class="mc-loading-card">
-                    <div class="mc-grass-loader" aria-hidden="true">
-                        <div class="mc-grass-block">
-                            <span class="mc-grass-top"></span>
-                            <span class="mc-grass-face"></span>
-                            <span class="mc-grass-shadow"></span>
-                        </div>
+                    <div class="mc-loading-avatar-wrap">
+                        <span class="mc-loading-avatar-glow" aria-hidden="true"></span>
+                        <img class="mc-loading-avatar" src="/images/avatar-transparent.png?v=1773194617367" alt="头像">
                     </div>
+                    <img class="mc-loading-logo" src="/images/mcgif.gif?v=1773194617367" alt="加载动画" aria-hidden="true">
                     <h2>LOADING...</h2>
-                    <p>草方块加载中，首次打开会稍慢一点，缓存后会更顺畅。</p>
-                    <div class="mc-loading-dots">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+                    <p>正在载入像素世界，首次打开会稍慢一点，缓存完成后会顺很多。</p>
                 </div>
             </div>
         </div>
@@ -57,7 +50,7 @@
                     <nav id="menu">
     <div class="desktop-menu">
         <a href="/" class="brand-link">
-            <span class="logo"><img src="/images/avatar-transparent.png?v=1773190840790" alt="Logo"></span>
+            <span class="logo"><img src="/images/avatar-transparent.png?v=1773194617368" alt="Logo"></span>
         </a>
         
         
@@ -113,7 +106,7 @@
     <div :class="'phone-menu ' + menu_show" id="phone-menu">
         <div class="menu-header">
             <a href="/" class="logo-link brand-link">
-                <span class="logo"><img src="/images/avatar-transparent.png?v=1773190840790" alt="Logo"></span>
+                <span class="logo"><img src="/images/avatar-transparent.png?v=1773194617368" alt="Logo"></span>
             </a>
             <span class="menu-toggle" @click="menu_show=!menu_show">
                 <img src="/images/menu-toggle-icon.png" alt="Menu" width="24" height="24" style="vertical-align: middle;">
@@ -235,6 +228,11 @@
                 </div>
             </div>
         </transition>
+    </div>
+    <div id="home-mascot" class="home-mascot" aria-hidden="true">
+        <div class="home-mascot-frame">
+            <img id="home-mascot-image" class="home-mascot-image" src="/images/mcgif-4.gif?v=1773194617369" alt="">
+        </div>
     </div>
     <script>
     (function () {
@@ -445,8 +443,6 @@
                 var dateElement = document.getElementById('dashboard-date');
                 var weekdayElement = document.getElementById('dashboard-weekday');
                 var sceneElement = document.getElementById('dashboard-scene');
-                var btcElement = document.getElementById('dashboard-btc');
-                var ethElement = document.getElementById('dashboard-eth');
                 var timezone = (timeScene && timeScene.timezone) || 'Asia/Shanghai';
                 var sceneNames = {
                     sunrise: '清晨',
@@ -498,33 +494,8 @@
                     }
                 };
 
-                var fetchMarketPanel = function () {
-                    var priceApi = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=cny';
-
-                    fetch(priceApi)
-                        .then(function (response) {
-                            if (!response.ok) throw new Error('price fetch failed');
-                            return response.json();
-                        })
-                        .then(function (data) {
-                            if (btcElement && data.bitcoin && data.bitcoin.cny) {
-                                btcElement.textContent = '¥' + Math.round(data.bitcoin.cny).toLocaleString('zh-CN');
-                            }
-
-                            if (ethElement && data.ethereum && data.ethereum.cny) {
-                                ethElement.textContent = '¥' + Math.round(data.ethereum.cny).toLocaleString('zh-CN');
-                            }
-                        })
-                        .catch(function () {
-                            if (btcElement) btcElement.textContent = '暂不可用';
-                            if (ethElement) ethElement.textContent = '暂不可用';
-                        });
-                };
-
                 updateTimePanel();
-                fetchMarketPanel();
                 setInterval(updateTimePanel, 1000);
-                setInterval(fetchMarketPanel, 300000);
             };
 
             var initInteractiveSurfaces = function () {
@@ -625,12 +596,29 @@
                 });
             };
 
+            var initHomeMascot = function () {
+                if (!document.body.classList.contains('home')) return;
+
+                var mascotImage = document.getElementById('home-mascot-image');
+                if (!mascotImage) return;
+
+                var mascotPool = [
+                    siteRoot + 'images/mcgif-4.gif',
+                    siteRoot + 'images/mcgif-5.gif'
+                ];
+                var chosenMascot = mascotPool[Math.floor(Math.random() * mascotPool.length)];
+
+                mascotImage.src = chosenMascot + '?v=' + Date.now();
+                mascotImage.dataset.ready = 'true';
+            };
+
             stripHeadingAnchors();
             initRevealMotion();
             initInteractiveSurfaces();
             initHeroParallax();
             initHomePostTransitions();
             initHomeDashboard();
+            initHomeMascot();
 
             window.addEventListener('scroll', function () {
                 that.menu_show = false

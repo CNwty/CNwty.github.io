@@ -59,6 +59,13 @@
   color: #5871a0;
   box-shadow: 0 10px 24px rgba(94,115,149,0.08);
 }
+.card-style .icon-links .icon-link a img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 1px 0 rgba(61,79,112,0.2));
+}
 .card-style .icon-links .icon-link a:hover {
   color: #fff9f3;
   background: linear-gradient(135deg, #5877b8 0%, #6f93db 100%);
