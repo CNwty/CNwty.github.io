@@ -104,6 +104,10 @@ body.home .home-mascot-image {
   }
 }
 @media (max-width: 900px) {
+  #home-head {
+    display: block;
+    overflow: visible;
+  }
   body.home .home-mascot {
     display: none;
   }
@@ -156,7 +160,7 @@ body.home .home-mascot-image {
     padding-left: 20px;
   }
   #home-posts-wrap {
-    padding: 18px 0 40px;
+    padding: 26px 0 40px;
     width: 94vw;
     display: block;
   }
@@ -253,7 +257,7 @@ body.home .home-mascot-image {
     line-height: 1.7;
   }
   #home-posts-wrap {
-    padding: 12px 0 30px;
+    padding: 24px 0 30px;
     width: 96vw;
   }
   #home-posts .section-heading {
