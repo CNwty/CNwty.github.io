@@ -240,15 +240,47 @@
 }
 @media (max-width: 600px) {
   #menu {
-    line-height: 44px;
+    line-height: 40px;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  #menu .phone-menu {
+    min-height: calc(56px + env(safe-area-inset-top, 0px));
+  }
+  #menu .phone-menu .menu-header {
+    height: 56px;
+    padding: 0 12px;
+    overflow: hidden;
+  }
+  #menu .phone-menu .menu-header .logo-link .logo img {
+    width: 46px;
+    height: 46px;
+  }
+  #menu .phone-menu .menu-header .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(244,248,255,0.96);
   }
   body.inner-page #menu.hidden-menu {
     top: 0 !important;
   }
   body.inner-page #phone-menu .curtain {
     position: absolute;
-    inset: 56px 0 auto 0;
-    height: calc(100dvh - 56px);
+    inset: calc(56px + env(safe-area-inset-top, 0px)) 0 auto 0;
+    height: calc(100dvh - 56px - env(safe-area-inset-top, 0px));
+  }
+}
+@media (max-width: 360px) {
+  #menu .phone-menu .menu-header {
+    padding: 0 10px;
+  }
+  #menu .phone-menu .menu-header .logo-link .logo img {
+    width: 40px;
+    height: 40px;
   }
 }
 @-moz-keyframes logo-pop-in {

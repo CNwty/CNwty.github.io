@@ -190,7 +190,7 @@ body.home .home-mascot-image {
 }
 @media (max-width: 600px) {
   #home-head {
-    padding: 88px 0 24px;
+    padding: calc(98px + env(safe-area-inset-top, 0px)) 0 24px;
   }
   #home-head .home-info {
     width: 94vw;
@@ -313,13 +313,40 @@ body.home .home-mascot-image {
     grid-template-columns: 1fr;
   }
 }
+@media (max-width: 360px) {
+  #home-head {
+    padding: calc(104px + env(safe-area-inset-top, 0px)) 0 20px;
+  }
+  #home-head .home-info .info .wrap {
+    padding: 18px 14px;
+  }
+  #home-head .home-info .info .wrap .hero-badges {
+    gap: 6px;
+  }
+  #home-head .home-info .info .wrap .hero-meta {
+    gap: 12px;
+  }
+  #home-head .home-info .info .wrap .hero-socials a {
+    width: 38px;
+    height: 38px;
+  }
+  #home-head .home-info .hero-panel .hero-panel-card {
+    padding: 16px 14px;
+  }
+  #home-posts .section-heading {
+    padding: 16px 14px;
+  }
+  #home-posts .post {
+    padding: 16px 14px 68px;
+  }
+}
 @media (max-width: 600px) {
   body.inner-page {
     background-position: center top !important;
     background-size: cover !important;
   }
   body.inner-page #menu_show {
-    height: 60px;
+    height: calc(60px + env(safe-area-inset-top, 0px));
   }
   body.inner-page #menu {
     position: fixed !important;
